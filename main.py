@@ -22,7 +22,7 @@ deduplicated_list = list(dictionary)
 artist_name = 'Drake'
 
 # Search for the artist using the 'search_artist' method
-artist = genius.search_artist(artist_name, max_songs=10)
+artist = genius.search_artist(artist_name, max_songs=None)
 
 # Delay execution for 5 seconds
 time.sleep(5)
