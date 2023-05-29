@@ -161,3 +161,4 @@ cython_debug/
 
 #to not leak my api key
 api_key.txt
+plan.txt
