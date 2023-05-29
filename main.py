@@ -3,6 +3,7 @@ import time
 
 #sleep = time.sleep(2)
 # add your Genius API access token here 
+genius = lyricsgenius.Genius('')
 
 #genius = lyricsgenius.PublicAPI()
 
