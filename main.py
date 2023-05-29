@@ -5,18 +5,27 @@ import time
 with open('api_key.txt', 'r') as file:
     api_key = file.read().strip()
 
-sleep = time.sleep(2)
-# add your Genius API access token here 
-#genius = lyricsgenius.Genius('rtdnYUhhPhGP6VbV_aTmh18fqd_m1W1EiMNrSF-FuEI5vu9Zt5ArDmDncLaJnBKA')
-genius = lyricsgenius.Genius(api_key)
+# Delay execution for 2 seconds
+time.sleep(2)
 
+# Initialize Genius object with API key
+genius = lyricsgenius.Genius(api_key)
 
 # Increase the timeout duration to 10 seconds
 genius.timeout = 10
 
-# Search for 10 Drake songs using the 'search_artist' method
-artist = genius.search_artist("Drake", max_songs=1)
-time.sleep(6) 
+duplicated_list = []
+dictionary = dict.fromkeys(duplicated_list)
+deduplicated_list = list(dictionary)
+
+#artist_name = input("Tell me rapper name: ")
+artist_name = 'Drake'
+
+# Search for the artist using the 'search_artist' method
+artist = genius.search_artist(artist_name, max_songs=10)
+
+# Delay execution for 5 seconds
+time.sleep(5)
 
 # Iterate over the songs
 for song in artist.songs:
@@ -25,4 +34,10 @@ for song in artist.songs:
 
     # Iterate over the producer artists of the song
     for artist in song_info["song"]["producer_artists"]:
-        print(artist["name"], sep=", ")
+        duplicated_list.append(artist["name"])
+
+# Deduplicate the list of artists
+deduplicated_list = list(set(duplicated_list))
+
+print(deduplicated_list)
+print(len((deduplicated_list)))
