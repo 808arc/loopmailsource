@@ -1,12 +1,11 @@
 import lyricsgenius
 import time
 
-# Open the file and read the API key
-with open('api_key.txt', 'r') as file:
-    api_key = file.read().strip()
+from dotenv import load_dotenv
+import os
 
-# Delay execution for 2 seconds
-time.sleep(2)
+load_dotenv()
+api_key = os.getenv("api_key")
 
 # Initialize Genius object with API key
 genius = lyricsgenius.Genius(api_key)
@@ -22,10 +21,10 @@ deduplicated_list = list(dictionary)
 artist_name = 'Drake'
 
 # Search for the artist using the 'search_artist' method
-artist = genius.search_artist(artist_name, max_songs=None)
+artist = genius.search_artist(artist_name, max_songs=1)
 
 # Delay execution for 5 seconds
-time.sleep(5)
+#time.sleep(5)
 
 # Iterate over the songs
 for song in artist.songs:
