@@ -17,6 +17,9 @@ duplicated_list = []
 dictionary = dict.fromkeys(duplicated_list)
 deduplicated_list = list(dictionary)
 
+
+
+
 #artist_name = input("Tell me rapper name: ")
 artist_name = 'Drake'
 
@@ -34,6 +37,9 @@ for song in artist.songs:
     # Iterate over the producer artists of the song
     for artist in song_info["song"]["producer_artists"]:
         duplicated_list.append(artist["name"])
+
+print(artist["instagram_name"])
+
 
 # Deduplicate the list of artists
 deduplicated_list = list(set(duplicated_list))
