@@ -13,11 +13,10 @@ genius = lyricsgenius.Genius(api_key)
 # Increase the timeout duration to 10 seconds
 genius.timeout = 10
 
+#deduplication of producer names list
 duplicated_list = []
 dictionary = dict.fromkeys(duplicated_list)
 deduplicated_list = list(dictionary)
-
-
 
 
 #artist_name = input("Tell me rapper name: ")
