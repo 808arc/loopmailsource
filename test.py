@@ -15,7 +15,7 @@ genius.timeout = 10
 
 # Search for the artist using the 'search_artist' method
 artist_name = 'Drake'
-artist = genius.search_artist(artist_name, max_songs=2)
+artist = genius.search_artist(artist_name, max_songs=3)
 
 # Retrieve the information of the artist
 artist_info = genius.artist(artist.id)
@@ -25,6 +25,7 @@ songs = artist.songs
 
 a = []
 b = []
+c = []
 # Iterate over the songs
 for song in songs:
     # Retrieve the information of the song
@@ -43,11 +44,19 @@ for song in songs:
 #        print(producer["name"], instagram_username)
         a.append(producer["name"])
         b.append(instagram_username)
+        c.append(song.title)
 
 data = {
     "Producer": a,
-    "IG": b}
+    "IG": b,
+    "Track": c
+    }    
 
 df = pd.DataFrame(data)
 
-print(df)
+deduplicated_df = df.drop_duplicates(subset=["Producer", "IG"])
+#print("Deduplicated DataFrame:")
+print(deduplicated_df)
+
+
+#print(df)

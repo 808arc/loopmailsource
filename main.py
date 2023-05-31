@@ -39,6 +39,10 @@ for song in artist.songs:
 
 print(artist["instagram_name"])
 
+#deduplication of producer names list
+duplicated_list = []
+dictionary = dict.fromkeys(duplicated_list)
+deduplicated_list = list(dictionary)
 
 # Deduplicate the list of artists
 deduplicated_list = list(set(duplicated_list))
