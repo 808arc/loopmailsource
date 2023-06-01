@@ -10,12 +10,14 @@ api_key = os.getenv("api_key")
 # Initialize Genius object with API key
 genius = lyricsgenius.Genius(api_key)
 
+time.sleep(1)
 # Increase the timeout duration to 10 seconds
 genius.timeout = 10
 
 # Search for the artist using the 'search_artist' method
 artist_name = 'Drake'
-artist = genius.search_artist(artist_name, max_songs=3)
+artist = genius.search_artist(artist_name, max_songs=10, include_features=True
+                              )
 
 # Retrieve the information of the artist
 artist_info = genius.artist(artist.id)
@@ -26,6 +28,8 @@ songs = artist.songs
 a = []
 b = []
 c = []
+d = []
+e = []
 # Iterate over the songs
 for song in songs:
     # Retrieve the information of the song
@@ -45,11 +49,34 @@ for song in songs:
         a.append(producer["name"])
         b.append(instagram_username)
         c.append(song.title)
+        time.sleep(5)
+
+#instaloder 
+
+import instaloader
+
+# Get instance
+L = instaloader.Instaloader()
+
+USER = 'beat.searcher'
+PASSWORD = 'instagram.com9'
+
+loader = L
+ 
+# Login using the credentials
+loader.login(USER, PASSWORD)
+ 
+
+
+
 
 data = {
+    "Artist": artist_name,
     "Producer": a,
     "IG": b,
-    "Track": c
+    "Track": c,
+    "Email": d,
+    "Email": e
     }    
 
 df = pd.DataFrame(data)
