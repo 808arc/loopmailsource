@@ -1,47 +1,27 @@
-import lyricsgenius
-import time
-
+import pandas as pd
 from dotenv import load_dotenv
 import os
 
 load_dotenv()
 api_key = os.getenv("api_key")
 
-# Initialize Genius object with API key
-genius = lyricsgenius.Genius(api_key)
-
-# Increase the timeout duration to 10 seconds
-genius.timeout = 10
-
-#deduplication of producer names list
-duplicated_list = []
-dictionary = dict.fromkeys(duplicated_list)
-deduplicated_list = list(dictionary)
-
-#artist_name = input("Tell me rapper name: ")
 artist_name = 'Drake'
 
-# Search for the artist using the 'search_artist' method
-artist = genius.search_artist(artist_name, max_songs=1)
+max_count = 3
 
-# Iterate over the songs
-for song in artist.songs:
-    # Retrieve the information of the song
-    song_info = genius.song(song.id)
+from genius import genius_auth
+from genius import get_artist
+from genius import get_artist_info
+from genius import get_songs
 
-    # Iterate over the producer artists of the song
-    for artist in song_info["song"]["producer_artists"]:
-        duplicated_list.append(artist["name"])
+genius = genius_auth(api_key)
+artist = get_artist(artist_name, genius, max_count)
+artist_info = get_artist_info(artist, genius)
+songs = get_songs(artist)
 
-print(artist["instagram_name"])
+from song_lists import producers, instagram_usernames, tracks, data
+from song_processing import process_songs
+process_songs(songs, genius)
 
-#deduplication of producer names list
-duplicated_list = []
-dictionary = dict.fromkeys(duplicated_list)
-deduplicated_list = list(dictionary)
-
-# Deduplicate the list of artists
-deduplicated_list = list(set(duplicated_list))
-
-print(deduplicated_list)
-print(len((deduplicated_list)))
+df = pd.DataFrame(data)
+print(df)
