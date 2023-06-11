@@ -9,23 +9,24 @@ api_key = os.getenv("api_key")
 user_name = os.getenv("user_name")
 password = os.getenv("password")
 
-artist_name = 'Drake'
+artist_name = 'drake'
 
-max_count = 1
+max_count = 2
 
 from genius import genius_auth, get_artist, get_artist_info, get_songs
 
 genius = genius_auth(api_key)
+print('login genius')
 artist = get_artist(artist_name, genius, max_count)
 artist_info = get_artist_info(artist, genius)
 songs = get_songs(artist)
 
-from song_lists import producers, instagram_usernames, tracks, data, email_public
+from song_lists import instagram_usernames, data, email_public, bio_list
 from song_processing import process_songs
 process_songs(songs, genius)
 
 from instagram_scraper import scrape_instagram_usernames
-ig = scrape_instagram_usernames(user_name, password, instagram_usernames, email_public)
+scrape_instagram_usernames(user_name, password, instagram_usernames, email_public, bio_list)
 
 df = pd.DataFrame(data)
 
