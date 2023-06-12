@@ -21,7 +21,7 @@ artist = get_artist(artist_name, genius, max_count)
 artist_info = get_artist_info(artist, genius)
 songs = get_songs(artist)
 
-from song_lists import instagram_usernames, data, email_public, bio_list
+from song_lists import producers, instagram_usernames, tracks, data, email_public, bio_list
 from song_processing import process_songs
 process_songs(songs, genius)
 
