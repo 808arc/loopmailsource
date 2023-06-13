@@ -11,7 +11,7 @@ def scrape_instagram_usernames(user_name, password, instagram_usernames, email_p
     api = login_to_instagram(user_name, password)
 
     for name_unit in instagram_usernames:
-        delay = randint(11, 30)
+        delay = randint(30, 60)
         print(f'Sleep {delay} sec')
         sleep(delay)
 

@@ -9,10 +9,16 @@ api_key = os.getenv("api_key")
 user_name = os.getenv("user_name")
 password = os.getenv("password")
 
-artist_name = 'drake'
+artist_name = input("Whos your favorite rapper? ")
 
-max_count = 2
-
+while True:
+    max_count = input("How many songs are we going to drill? ")
+    if max_count.isdigit():
+        max_count = int(max_count)
+        break
+    else:
+        print("Invalid input. Please enter a valid number.")
+        
 from genius import genius_auth, get_artist, get_artist_info, get_songs
 
 genius = genius_auth(api_key)
@@ -29,5 +35,7 @@ from instagram_scraper import scrape_instagram_usernames
 scrape_instagram_usernames(user_name, password, instagram_usernames, email_public, bio_list)
 
 df = pd.DataFrame(data)
+
+df.to_excel('output.xlsx', sheet_name='Sheet1', index=False)
 
 print(df)
