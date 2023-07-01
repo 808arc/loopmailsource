@@ -44,6 +44,6 @@ scrape_instagram_usernames(
 
 df = pd.DataFrame(data)
 
-df.to_excel("output.xlsx", sheet_name="Sheet1", index=False)
+df.to_excel(f"{artist_name}_{max_count}_tracks.xlsx", sheet_name="Sheet1", index=False)
 
 print(df)

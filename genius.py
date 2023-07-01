@@ -1,5 +1,5 @@
-import lyricsgenius
 import time
+import lyricsgenius
 
 
 def genius_auth(api_key):
