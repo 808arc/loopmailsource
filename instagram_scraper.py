@@ -3,43 +3,47 @@ from random import randint
 from instagram_private_api import Client
 from instagram_private_api.errors import ClientError
 
+
 def login_to_instagram(user_name, password):
     api = Client(user_name, password)
     return api
 
-def scrape_instagram_usernames(user_name, password, instagram_usernames, email_public, bio_list):
+
+def scrape_instagram_usernames(
+    user_name, password, instagram_usernames, email_public, bio_list
+):
     api = login_to_instagram(user_name, password)
 
     for name_unit in instagram_usernames:
-        delay = randint(30, 60)
-        print(f'Sleep {delay} sec')
+        delay = randint(15, 60)
+        print(f"Sleep {delay} sec")
         sleep(delay)
 
         try:
             target_user_info = api.username_info(name_unit)
-            
-            if 'public_email' in target_user_info['user']:
-                public_email = target_user_info['user']['public_email']
+
+            if "public_email" in target_user_info["user"]:
+                public_email = target_user_info["user"]["public_email"]
                 email_public.append(public_email)
                 print(f"Public email of {name_unit}: {public_email}")
             else:
                 email_public.append(" ")
                 print(f"No public email found for {name_unit}")
 
-            if 'biography' in target_user_info['user']:
-                bio = target_user_info['user']['biography']
+            if "biography" in target_user_info["user"]:
+                bio = target_user_info["user"]["biography"]
                 bio_list.append(bio)
                 print(f"Bio of {name_unit}: {bio}")
             else:
                 bio_list.append("_")
                 print(f"No bio found for {name_unit}")
-        
+
         except ClientError as e:
-            if e.code == 'user_not_found':
+            if e.code == "user_not_found":
                 print(f"User '{name_unit}' not found")
                 bio_list.append("_")
                 email_public.append(" ")
-            elif e.code == 'rate_limit_error':
+            elif e.code == "rate_limit_error":
                 print(f"Rate limit error occurred. Re-logging in...")
                 bio_list.append("_")
                 email_public.append(" ")
