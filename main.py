@@ -18,7 +18,7 @@ load_dotenv()
 # Retrieve Genius API and Instagram credentials from environment variables
 api_key = os.getenv("api_key")  # Genius API key
 user_name = os.getenv("user_name")  # Instagram username
-password = os.getenv("password")    # Instagram password
+password = os.getenv("password")  # Instagram password
 
 # Prompt the user for their favorite rapper's name
 artist_name = input("Whos your favorite rapper? ")

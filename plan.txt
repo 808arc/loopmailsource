@@ -77,3 +77,5 @@ set up correclty api key insert via .txt file
 
 
 try to find way how to get ig id by name of producer 
+
+what easy thing i can do? maybe try to "comment" and retunr project as god damn manual lol i got you.
