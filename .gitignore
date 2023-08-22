@@ -7,6 +7,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+#Private Plan text file
+plan.txt
+
 # C extensions
 *.so
 

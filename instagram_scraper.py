@@ -4,22 +4,25 @@ from instagram_private_api import Client
 from instagram_private_api.errors import ClientError
 
 
+# Function to log in to Instagram and return the API object
 def login_to_instagram(user_name, password):
     api = Client(user_name, password)
     return api
 
 
+# Function to scrape Instagram usernames for public email and bio information
 def scrape_instagram_usernames(
     user_name, password, instagram_usernames, email_public, bio_list
 ):
     api = login_to_instagram(user_name, password)
 
     for name_unit in instagram_usernames:
-        delay = randint(15, 60)
+        delay = randint(31, 59)
         print(f"Sleep {delay} sec")
         sleep(delay)
 
         try:
+            # Fetch user information for the current username
             target_user_info = api.username_info(name_unit)
 
             if "public_email" in target_user_info["user"]:
@@ -44,12 +47,12 @@ def scrape_instagram_usernames(
                 bio_list.append("_")
                 email_public.append(" ")
             elif e.code == "rate_limit_error":
-                print(f"Rate limit error occurred. Re-logging in...")
+                print(f"Rate limit error occurred. Re-logging in {delay} seconds")
                 bio_list.append("_")
                 email_public.append(" ")
+                # Re-login and retry the request or continue with the next username as desired
                 api = login_to_instagram(user_name, password)
                 target_user_info = api.username_info(name_unit)
-                # Retry the request or continue with the next username as desired
             else:
                 print(f"Error occurred for user '{name_unit}': {e}")
                 bio_list.append("_")
