@@ -16,6 +16,9 @@ plan.txt
 # Sheets
 .csv
 
+# Flake8
+.flake8
+
 # C extensions
 *.so
 
