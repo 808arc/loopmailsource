@@ -1,7 +1,6 @@
 # Import necessary libraries
 import pandas as pd
-from dotenv import load_dotenv
-import os
+from log_manager import api_key, user_name, password
 from genius import genius_auth, get_artist_data
 from song_lists import (
     instagram_usernames,
@@ -12,14 +11,7 @@ from song_lists import (
 from song_processing import process_songs
 from instagram_scraper import scrape_instagram_usernames
 
-# Load environment variables from the .env file in the root directory
-dotenv_path = os.path.join(os.path.dirname(__file__), "..", ".env")
-load_dotenv(dotenv_path)
 
-# Retrieve Genius API and Instagram credentials from environment variables
-api_key = os.getenv("api_key")  # Genius API key
-user_name = os.getenv("user_name")  # Instagram username
-password = os.getenv("password")  # Instagram password
 
 # Prompt the user for their favorite rapper's name
 artist_name = input("Who's your favorite rapper? ")
