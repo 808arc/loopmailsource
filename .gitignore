@@ -13,6 +13,9 @@ test.py
 #Private Plan text file
 plan.txt
 
+# Sheets
+.csv
+
 # C extensions
 *.so
 
