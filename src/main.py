@@ -55,8 +55,8 @@ scrape_instagram_usernames(
 # Create a DataFrame using the collected data
 df = pd.DataFrame(data)
 
-# Save the DataFrame to an Excel file
-df.to_excel(f"{artist_name}_{max_count}_tracks.xlsx", sheet_name="Sheet1", index=False)
+# Save the DataFrame to a CSV file
+df.to_csv(f"{artist_name}_{max_count}_tracks.csv", index=False)
 
 # Print the DataFrame
 print(df)
