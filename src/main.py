@@ -1,7 +1,7 @@
 # Import necessary libraries
 import pandas as pd
-from log_manager import api_key, user_name, password
-from genius import genius_auth, get_artist_data
+from log_manager import api_key, user_name, password, genius
+from genius import get_artist_data
 from song_lists import (
     instagram_usernames,
     data,
@@ -23,9 +23,6 @@ while True:
     else:
         print("Invalid input. Please enter a valid number.")
 
-# Authenticate with the Genius API using the provided API key
-genius = genius_auth(api_key)
-print("Logged in to Genius")
 
 # Fetch information about the artist
 artist, artist_info, songs = get_artist_data(artist_name, api_key, max_count)
