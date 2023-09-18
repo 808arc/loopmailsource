@@ -1,3 +1,0 @@
-This is an example text file.
-It contains multiple lines of text.
-Each line is separated by a newline character.
