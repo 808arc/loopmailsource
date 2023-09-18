@@ -2,6 +2,7 @@ import os
 import pandas as pd
 from main import artist_name, max_count
 
+
 def df_gen(data):
     # Create a DataFrame using the collected data
     df = pd.DataFrame(data)
@@ -14,10 +15,11 @@ def df_gen(data):
         os.makedirs(data_folder)
 
     # Define the Excel file path within the "data" folder
-    excel_file_path = os.path.join(data_folder, f"{artist_name}_{max_count}_tracks.xlsx")
+    excel_file_path = os.path.join(
+        data_folder, f"{artist_name}_{max_count}_tracks.xlsx"
+    )
 
     # Save the DataFrame to an Excel file in the "data" folder
     df.to_excel(excel_file_path, sheet_name="Sheet1", index=False)
 
     print(f"DataFrame has been saved to '{excel_file_path}' in the 'data' folder.")
-

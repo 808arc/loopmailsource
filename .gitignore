@@ -7,6 +7,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+#Privat test file
+test.py
+
 #Private Plan text file
 plan.txt
 
