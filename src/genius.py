@@ -1,4 +1,3 @@
-import time
 import lyricsgenius
 
 
@@ -20,17 +19,13 @@ def get_artist_info(artist, genius):
 def get_artist_data(artist_name, api_key, max_count):
     # Authenticate to Genius API
     genius = genius_auth(api_key)
-    
     # Search for the artist and retrieve their information
     artist = genius.search_artist(
         artist_name, max_songs=max_count, include_features=True
     )
-    
     # Retrieve the additional information of the artist
     artist_info = get_artist_info(artist, genius)
-    
     # Fetch all songs by the artist
     songs = artist.songs
-    
     # Return the artist, artist_info, and songs as a tuple
     return artist, artist_info, songs

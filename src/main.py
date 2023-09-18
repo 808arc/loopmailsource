@@ -11,8 +11,6 @@ from song_lists import (
 from song_processing import process_songs
 from instagram_scraper import scrape_instagram_usernames
 
-
-
 # Prompt the user for their favorite rapper's name
 artist_name = input("Who's your favorite rapper? ")
 
