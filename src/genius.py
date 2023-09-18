@@ -11,21 +11,26 @@ def genius_auth(api_key):
     return genius
 
 
-def get_artist(artist_name, genius, max_count):
-    # Search for the artist and retrieve thier information
-    artist = genius.search_artist(
-        artist_name, max_songs=max_count, include_features=True
-    )
-    return artist
-
-
 def get_artist_info(artist, genius):
     # Retrieve the information of the artist
     artist_info = genius.artist(artist.id)
     return artist_info
 
 
-def get_songs(artist):
+def get_artist_data(artist_name, api_key, max_count):
+    # Authenticate to Genius API
+    genius = genius_auth(api_key)
+    
+    # Search for the artist and retrieve their information
+    artist = genius.search_artist(
+        artist_name, max_songs=max_count, include_features=True
+    )
+    
+    # Retrieve the additional information of the artist
+    artist_info = get_artist_info(artist, genius)
+    
     # Fetch all songs by the artist
     songs = artist.songs
-    return songs
+    
+    # Return the artist, artist_info, and songs as a tuple
+    return artist, artist_info, songs

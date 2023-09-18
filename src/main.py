@@ -2,7 +2,7 @@
 import pandas as pd
 from dotenv import load_dotenv
 import os
-from genius import genius_auth, get_artist, get_artist_info, get_songs
+from genius import genius_auth, get_artist_data
 from song_lists import (
     instagram_usernames,
     data,
@@ -22,7 +22,7 @@ user_name = os.getenv("user_name")  # Instagram username
 password = os.getenv("password")  # Instagram password
 
 # Prompt the user for their favorite rapper's name
-artist_name = input("Whos your favorite rapper? ")
+artist_name = input("Who's your favorite rapper? ")
 
 # Validate and retrieve the maximum number of songs to process
 while True:
@@ -35,14 +35,10 @@ while True:
 
 # Authenticate with the Genius API using the provided API key
 genius = genius_auth(api_key)
-print("login genius")
+print("Logged in to Genius")
 
 # Fetch information about the artist
-artist = get_artist(artist_name, genius, max_count)
-artist_info = get_artist_info(artist, genius)
-
-# Retrieve the list of songs by the artist
-songs = get_songs(artist)
+artist, artist_info, songs = get_artist_data(artist_name, api_key, max_count)
 
 # Process the fetched songs using custom processing functions
 process_songs(songs, genius)
@@ -60,4 +56,3 @@ df.to_csv(f"{artist_name}_{max_count}_tracks.csv", index=False)
 
 # Print the DataFrame
 print(df)
-# create separated file named data saver.
