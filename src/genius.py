@@ -5,8 +5,6 @@ import lyricsgenius
 def genius_auth(api_key):
     # Initialize Genius object with API key
     genius = lyricsgenius.Genius(api_key)
-
-    time.sleep(1)
     # Increase the timeout duration to 10 seconds
     genius.timeout = 10
     # Search for the artist using the 'search_artist' method
@@ -14,6 +12,7 @@ def genius_auth(api_key):
 
 
 def get_artist(artist_name, genius, max_count):
+    # Search for the artist and retrieve thier information
     artist = genius.search_artist(
         artist_name, max_songs=max_count, include_features=True
     )
