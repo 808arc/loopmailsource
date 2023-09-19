@@ -64,7 +64,7 @@ To obtain the necessary API keys:
 - **Genius API Key:**
   1. Sign up on [Genius](https://genius.com/).
   2. Go to the [Genius API Clients](https://genius.com/api-clients) page.
-  3. Obtain a CLIENT ACCESS TOKEN for your application.
+  3. Obtain a CLIENT SECRET for your application.
 
 With the API keys and credentials configured in the `.env` file, you can start using the Music and Instagram Data Collector to gather information about your favorite music artist and their Instagram presence.
 
