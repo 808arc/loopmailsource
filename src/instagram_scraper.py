@@ -1,7 +1,15 @@
+import pickle
 from time import sleep
 from random import randint
-from log_manager import login_to_instagram
+
+# from log_manager import login_to_instagram
 from instagram_private_api.errors import ClientError
+from instagram_private_api import Client
+
+
+def login_to_instagram(user_name, password):
+    api = Client(user_name, password)
+    return api
 
 
 # Function to scrape Instagram usernames for public email and bio information
