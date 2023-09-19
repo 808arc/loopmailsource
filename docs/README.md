@@ -94,7 +94,6 @@ The `main.py` script is the main entry point for the project. It prompts the use
 
 The project relies on several Python packages, which are listed in the `requirements.txt` file. You can install these requirements using pip:
 
-```bash
 pip install -r requirements.txt
 
 ## Getting API Keys
