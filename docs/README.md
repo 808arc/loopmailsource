@@ -7,6 +7,9 @@
 - [Installation](#installation)
 - [Usage](#usage)
 - [Configuration](#configuration)
+  - [Insert your Genius API key](#Insert-your-Genius-API-key)
+  - [Insert your Instagram credentials](Insert-your-Instagram-credentials)
+  - [Getting API Keys](#getting-api-keys)
 - [Documentation](#documentation)
   - [genius.py](#geniuspy)
   - [instagram_scraper.py](#instagram_scraperpy)
@@ -15,7 +18,6 @@
   - [song_list.py](#song_listpy)
   - [song_processing.py](#song_processingpy)
 - [Requirements](#requirements)
-- [Getting API Keys](#getting-api-keys)
 
 ## Introduction
 
@@ -55,14 +57,28 @@ To use the Music and Instagram Data Collector:
 
 In the `.env` file, configure the following variables:
 
-# Insert your Genius API key
+## Insert your Genius API key
 api_key = 'your_genius_api_key'
 
-# Insert your Instagram credentials
+## Insert your Instagram credentials
 user_name = 'your_instagram_username'
 password = 'your_instagram_password'
 
 Make sure to replace 'your_genius_api_key', 'your_instagram_username', and 'your_instagram_password' with your actual API key and credentials.
+
+- **Instagram Credentials:** Use your own Instagram username and password for Instagram data scraping.
+
+
+## Getting API Keys
+
+To obtain the necessary API keys:
+
+- **Genius API Key:**
+  1. Sign up on [Genius](https://genius.com/).
+  2. Go to the [Genius API Clients](https://genius.com/api-clients) page.
+  3. Obtain a CLIENT ACCESS TOKEN for your application.
+
+With the API keys and credentials configured in the `.env` file, you can start using the Music and Instagram Data Collector to gather information about your favorite music artist and their Instagram presence.
 
 ## Documentation
 
@@ -95,16 +111,3 @@ The `main.py` script is the main entry point for the project. It prompts the use
 The project relies on several Python packages, which are listed in the `requirements.txt` file. You can install these requirements using pip:
 
 pip install -r requirements.txt
-
-## Getting API Keys
-
-To obtain the necessary API keys:
-
-- **Genius API Key:**
-  1. Sign up on [Genius](https://genius.com/).
-  2. Go to the [Genius API Clients](https://genius.com/api-clients) page.
-  3. Obtain a CLIENT ACCESS TOKEN for your application.
-
-- **Instagram Credentials:** Use your own Instagram username and password for Instagram data scraping.
-
-With the API keys and credentials configured in the `.env` file, you can start using the Music and Instagram Data Collector to gather information about your favorite music artist and their Instagram presence.
