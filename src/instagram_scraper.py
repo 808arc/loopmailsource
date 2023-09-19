@@ -1,13 +1,7 @@
 from time import sleep
 from random import randint
-from instagram_private_api import Client
+from log_manager import login_to_instagram
 from instagram_private_api.errors import ClientError
-
-
-# Function to log in to Instagram and return the API object
-def login_to_instagram(user_name, password):
-    api = Client(user_name, password)
-    return api
 
 
 # Function to scrape Instagram usernames for public email and bio information
@@ -15,6 +9,7 @@ def scrape_instagram_usernames(
     user_name, password, instagram_usernames, email_public, bio_list
 ):
     api = login_to_instagram(user_name, password)
+    request_counter = 0  # Counter for API requests
 
     for name_unit in instagram_usernames:
         delay = randint(31, 59)
@@ -24,6 +19,7 @@ def scrape_instagram_usernames(
         try:
             # Fetch user information for the current username
             target_user_info = api.username_info(name_unit)
+            request_counter += 1  # Increment the request counter
 
             if "public_email" in target_user_info["user"]:
                 public_email = target_user_info["user"]["public_email"]
@@ -53,8 +49,11 @@ def scrape_instagram_usernames(
                 # Re-login and retry the request or continue with the next username as desired
                 api = login_to_instagram(user_name, password)
                 target_user_info = api.username_info(name_unit)
+                request_counter += 1  # Increment the request counter
             else:
                 print(f"Error occurred for user '{name_unit}': {e}")
                 bio_list.append("_")
                 email_public.append(" ")
                 # Handle other errors as needed
+
+    print(f"Total API requests made: {request_counter}")

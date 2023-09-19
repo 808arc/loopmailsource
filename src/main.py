@@ -1,4 +1,3 @@
-# Import necessary libraries
 import pandas as pd
 from log_manager import api_key, user_name, password, genius
 from genius import get_artist_data
