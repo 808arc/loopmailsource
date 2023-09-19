@@ -3,36 +3,24 @@
 ## Table of Contents
 
 - [Introduction](#introduction)
-- [Project Structure](#project-structure)
-- [Installation](#installation)
-- [Usage](#usage)
+  - [Installation](#installation)
+  - [Usage](#usage)
 - [Configuration](#configuration)
   - [Insert your Genius API key](#Insert-your-Genius-API-key)
   - [Insert your Instagram credentials](Insert-your-Instagram-credentials)
   - [Getting API Keys](#getting-api-keys)
 - [Documentation](#documentation)
+  - [Project Structure](#project-structure)
   - [genius.py](#geniuspy)
   - [instagram_scraper.py](#instagram_scraperpy)
   - [log_manager.py](#log_managerpy)
   - [main.py](#mainpy)
   - [song_list.py](#song_listpy)
   - [song_processing.py](#song_processingpy)
-- [Requirements](#requirements)
 
 ## Introduction
 
-The Music and Instagram Data Collector is a Python project that allows you to collect information about your favorite music artist and scrape Instagram data. It can fetch data about songs, producers, and artists while also gathering Instagram usernames, public email addresses, and biographies.
-
-## Project Structure
-
-The project is organized into several Python files within the `src` directory:
-
-- `genius.py`: Handles interaction with the Genius API for music-related data.
-- `instagram_scraper.py`: Provides functions for scraping Instagram data.
-- `log_manager.py`: Manages API keys and authentication for Genius and Instagram.
-- `main.py`: The main script that orchestrates the data collection process.
-- `song_list.py`: Defines lists for storing data related to songs, producers, Instagram usernames, emails, and biographies.
-- `song_processing.py`: Contains functions for processing song-related data.
+"loopmailsource" is a Python project that allows you to collect information about your favorite music artist producers and scrape their open data contacts. It can fetch data about songs, producers, and artists while also gathering Instagram usernames, public email addresses, and biographies.
 
 ## Installation
 
@@ -82,6 +70,17 @@ With the API keys and credentials configured in the `.env` file, you can start u
 
 ## Documentation
 
+## Project Structure
+
+The project is organized into several Python files within the `src` directory:
+
+- `genius.py`: Handles interaction with the Genius API for music-related data.
+- `instagram_scraper.py`: Provides functions for scraping Instagram data.
+- `log_manager.py`: Manages API keys and authentication for Genius and Instagram.
+- `main.py`: The main script that orchestrates the data collection process.
+- `song_list.py`: Defines lists for storing data related to songs, producers, Instagram usernames, emails, and biographies.
+- `song_processing.py`: Contains functions for processing song-related data.
+
 **genius.py**
 
 This module handles interactions with the Genius API for music-related data. It includes functions for authentication, retrieving artist information, and fetching songs.
@@ -106,8 +105,3 @@ The `main.py` script is the main entry point for the project. It prompts the use
 
 `song_processing.py` contains functions for processing song-related data. It iterates through songs, retrieves information about producers, and calculates estimated time and progress during data collection.
 
-## Requirements
-
-The project relies on several Python packages, which are listed in the `requirements.txt` file. You can install these requirements using pip:
-
-pip install -r requirements.txt
