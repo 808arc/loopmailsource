@@ -27,7 +27,7 @@
 To set up the project, follow these steps:
 
 1. Clone the project repository from GitHub.
-2. Create a virtual environment (recommended) and activate it.
+2. Create a [virtual environment](https://docs.python.org/3/library/venv.html) and activate it. 
 3. Install the required packages listed in the `requirements.txt` file using `pip install -r requirements.txt`.
 4. Create a `.env` file in the root directory (next to `requirements.txt`) and populate it with your API keys and Instagram credentials (see [Configuration](#configuration)).
 5. You are now ready to use the project.
