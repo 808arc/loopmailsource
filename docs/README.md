@@ -11,12 +11,12 @@
   - [Getting API Keys](#getting-api-keys)
 - [Documentation](#documentation)
   - [Project Structure](#project-structure)
-  - [genius.py](#geniuspy)
-  - [instagram_scraper.py](#instagram_scraperpy)
-  - [log_manager.py](#log_managerpy)
-  - [main.py](#mainpy)
-  - [song_list.py](#song_listpy)
-  - [song_processing.py](#song_processingpy)
+    - [genius.py](#geniuspy)
+    - [instagram_scraper.py](#instagram_scraperpy)
+    - [log_manager.py](#log_managerpy)
+    - [main.py](#mainpy)
+    - [song_list.py](#song_listpy)
+    - [song_processing.py](#song_processingpy)
 
 ## Introduction
 
