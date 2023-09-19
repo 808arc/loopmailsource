@@ -1,6 +1,15 @@
 # Created by https://www.toptal.com/developers/gitignore/api/python,visualstudiocode
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,visualstudiocode
 
+# Environments
+
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
 ### Python ###
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -134,15 +143,6 @@ celerybeat.pid
 
 # SageMath parsed files
 *.sage.py
-
-# Environments
-.env
-.venv
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
 
 # Spyder project settings
 .spyderproject
