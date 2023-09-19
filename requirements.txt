@@ -1,9 +1,7 @@
 instagram-private-api==1.6.0.0
 lyricsgenius==3.0.1
 pandas==2.0.3
-python-dateutil==2.8.2
 python-dotenv==1.0.0
-pytz==2023.3
 requests==2.31.0
 
 
