@@ -1,9 +1,8 @@
 # Created by https://www.toptal.com/developers/gitignore/api/python,visualstudiocode
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,visualstudiocode
 
-<<<<<<< HEAD
 # Environments
-.env
+
 .venv
 env/
 venv/
@@ -11,8 +10,6 @@ ENV/
 env.bak/
 venv.bak/
 
-=======
->>>>>>> parent of e09d3fb (0.2.2 fixing security issue)
 ### Python ###
 # Byte-compiled / optimized / DLL files
 __pycache__/
