@@ -1,56 +1,108 @@
-# Music Data Processing Tool
+# Project Documentation: Music and Instagram Data Collector
 
-This tool is designed to help you retrieve and process music-related data from various sources, including the Genius lyrics API and Instagram profiles. It consists of several Python scripts that work together to gather information about your favorite rapper's songs, their producers, and relevant Instagram data.
+## Table of Contents
 
-## Getting Started
+- [Introduction](#introduction)
+- [Project Structure](#project-structure)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Configuration](#configuration)
+- [Documentation](#documentation)
+  - [genius.py](#geniuspy)
+  - [instagram_scraper.py](#instagram_scraperpy)
+  - [log_manager.py](#log_managerpy)
+  - [main.py](#mainpy)
+  - [song_list.py](#song_listpy)
+  - [song_processing.py](#song_processingpy)
+- [Requirements](#requirements)
+- [Getting API Keys](#getting-api-keys)
 
-To use this tool, follow these steps:
+## Introduction
 
-1. Clone this repository to your local machine.
+The Music and Instagram Data Collector is a Python project that allows you to collect information about your favorite music artist and scrape Instagram data. It can fetch data about songs, producers, and artists while also gathering Instagram usernames, public email addresses, and biographies.
 
-2. Set up your environment variables:
-   - Create a `.env` file in the root directory of the repository.
-   - Add the following variables to the `.env` file and replace the values with your actual credentials:
-        `api_key=<Your_Genius_API_Key>`
-        `user_name=<Your_Instagram_Username>`
-        `password=<Your_Instagram_Password>`
+## Project Structure
 
-3. Install the required Python packages by running:
+The project is organized into several Python files within the `src` directory:
 
-    `pip install -r requirements.txt`
+- `genius.py`: Handles interaction with the Genius API for music-related data.
+- `instagram_scraper.py`: Provides functions for scraping Instagram data.
+- `log_manager.py`: Manages API keys and authentication for Genius and Instagram.
+- `main.py`: The main script that orchestrates the data collection process.
+- `song_list.py`: Defines lists for storing data related to songs, producers, Instagram usernames, emails, and biographies.
+- `song_processing.py`: Contains functions for processing song-related data.
 
+## Installation
 
-4. Run the `main.py` script to start processing the data:
+To set up the project, follow these steps:
 
-`python main.py`
-
-
-## Files
-
-- `genius.py`: This script contains functions to authenticate with the Genius API, retrieve artist and song data, and fetch artist information.
-
-- `instagram_scraper.py`: This script uses the `instagram_private_api` library to scrape Instagram usernames for public email and bio information.
-
-- `main.py`: The main script that orchestrates the data processing. It prompts the user for inputs, interacts with Genius and Instagram APIs, and saves the collected data to an Excel file.
-
-- `song_list.py`: Contains lists used to store producer information, Instagram usernames, and other data.
-
-- `song_processing.py`: Contains functions to process the fetched songs and their associated producers.
+1. Clone the project repository from GitHub.
+2. Create a virtual environment (recommended) and activate it.
+3. Install the required packages listed in the `requirements.txt` file using `pip install -r requirements.txt`.
+4. Create a `.env` file in the root directory (next to `requirements.txt`) and populate it with your API keys and Instagram credentials (see [Configuration](#configuration)).
+5. You are now ready to use the project.
 
 ## Usage
 
-1. When you run the `main.py` script, it will prompt you for the name of your favorite rapper and the maximum number of songs you want to process.
+To use the Music and Instagram Data Collector:
 
-2. The script will authenticate with the Genius API using the provided API key and fetch information about the artist.
+1. Run the `main.py` script.
+2. Follow the prompts to input the artist's name and the maximum number of songs to process.
+3. The script will collect data about the artist, their songs, producers, and Instagram-related information.
+4. The results will be saved to a CSV file named `<artist_name>_<max_count>_tracks.csv`.
 
-3. It will then retrieve a list of songs by the artist and process them using the custom processing functions.
+## Configuration
 
-4. The `scrape_instagram_usernames` function will be called to scrape Instagram usernames' public email and bio information.
+In the `.env` file, configure the following variables:
 
-5. Finally, a DataFrame will be created using the collected data, and the DataFrame will be saved to an Excel file.
+```env
+# Insert your Genius API key
+api_key = 'your_genius_api_key'
 
-## Notes
+# Insert your Instagram credentials
+user_name = 'your_instagram_username'
+password = 'your_instagram_password'
 
-- The `requirements.txt` file contains the necessary Python packages. Install them using `pip install -r requirements.txt`.
+Make sure to replace 'your_genius_api_key', 'your_instagram_username', and 'your_instagram_password' with your actual API key and credentials.
 
-- This tool is designed for educational and personal use. Make sure to review and comply with the terms of use for the Genius API and any other services you interact with.
+## Documentation
+
+**genius.py**
+
+This module handles interactions with the Genius API for music-related data. It includes functions for authentication, retrieving artist information, and fetching songs.
+
+**instagram_scraper.py**
+
+The `instagram_scraper.py` module provides functions for scraping Instagram data, including public email addresses and biographies, from Instagram usernames.
+
+**log_manager.py**
+
+`log_manager.py` manages API keys and authentication for both the Genius and Instagram APIs. It loads environment variables from the `.env` file and provides the `genius_auth` function for Genius API authentication.
+
+**main.py**
+
+The `main.py` script is the main entry point for the project. It prompts the user for input, fetches data about the artist and their songs, processes the data, scrapes Instagram information, and saves the results to a CSV file.
+
+**song_list.py**
+
+`song_list.py` defines lists for storing data related to songs, producers, Instagram usernames, public email addresses, and biographies. These lists are used to collect and organize the data during the execution of the project.
+
+**song_processing.py**
+
+`song_processing.py` contains functions for processing song-related data. It iterates through songs, retrieves information about producers, and calculates estimated time and progress during data collection.
+
+## Requirements
+
+The project relies on several Python packages, which are listed in the `requirements.txt` file. You can install these requirements using pip:
+
+```bash
+pip install -r requirements.txt
+
+## Getting API Keys
+
+To obtain the necessary API keys:
+
+- **Genius API Key:** Sign up on Genius and obtain a CLIENT ACCESS TOKEN from Genius API Clients.
+- **Instagram Credentials:** Use your own Instagram username and password for Instagram data scraping.
+
+With the API keys and credentials configured in the `.env` file, you can start using the Music and Instagram Data Collector to gather information about your favorite music artist and their Instagram presence.
