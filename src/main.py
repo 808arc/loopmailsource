@@ -17,8 +17,8 @@ from instagram_scraper import scrape_instagram_usernames
 
 # Prompt the user for their favorite rapper's name
 artist_name = input("Who's your favorite rapper? ")
-if artist_name.lower() == "q":
-    exit()  # Exit the program if 'q' is entered
+if artist_name.lower() == "qq":
+    exit()  # Exit the program if 'qq' is entered
 
 # Validate and retrieve the maximum number of songs to process
 while True:
