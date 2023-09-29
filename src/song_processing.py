@@ -1,7 +1,9 @@
 import time
+from functools import lru_cache
 from song_lists import producers, instagram_usernames, tracks
 
 
+# @lru_cache(maxsize=None)
 def process_songs(songs, genius):
     num_producers = len(producers)  # Get the initial number of producers
 
@@ -45,4 +47,3 @@ def process_songs(songs, genius):
         print(f"Estimated time remaining: {estimated_remaining_time:.2f} seconds")
 
     # Do something with the producers, instagram_usernames, and tracks lists
-    # ...

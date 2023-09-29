@@ -1,6 +1,7 @@
-# import pickle
+import pickle
 from time import sleep
 from random import randint
+from functools import lru_cache
 
 # from log_manager import login_to_instagram
 from instagram_private_api.errors import ClientError
@@ -8,7 +9,15 @@ from instagram_private_api import Client
 
 
 def login_to_instagram(user_name, password):
-    api = Client(user_name, password)
+    try:
+        with open("instagram_cookie.pkl", "rb") as f:
+            cookie = pickle.load(f)
+            api = Client(user_name, password, cookie=cookie)
+    except (FileNotFoundError, EOFError, pickle.UnpicklingError):
+        api = Client(user_name, password)
+        # Save the session cookie for future use
+        with open("instagram_cookie.pkl", "wb") as f:
+            pickle.dump(api.cookie_jar.dump(), f)
     return api
 
 
