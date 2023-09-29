@@ -13,11 +13,13 @@ def login_to_instagram(user_name, password):
         with open("instagram_cookie.pkl", "rb") as f:
             cookie = pickle.load(f)
             api = Client(user_name, password, cookie=cookie)
+            print("Using existing session.")
     except (FileNotFoundError, EOFError, pickle.UnpicklingError):
         api = Client(user_name, password)
         # Save the session cookie for future use
         with open("instagram_cookie.pkl", "wb") as f:
             pickle.dump(api.cookie_jar.dump(), f)
+            print("Opened new session.")
     return api
 
 
