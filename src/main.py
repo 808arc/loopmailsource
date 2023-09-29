@@ -1,10 +1,5 @@
 import pandas as pd
-from log_manager import (
-    api_key,
-    user_name,
-    password,
-    genius,
-)
+from log_manager import api_key, user_name, password, genius
 from genius import get_artist_data
 from song_lists import (
     instagram_usernames,
@@ -16,13 +11,12 @@ from song_processing import process_songs
 from instagram_scraper import scrape_instagram_usernames
 
 # Prompt the user for their favorite rapper's name
-artist_name = input("Who's your favorite rapper? ")
+artist_name = input("Who's your target placement?")
 if artist_name.lower() == "qq":
     exit()  # Exit the program if 'qq' is entered
-
 # Validate and retrieve the maximum number of songs to process
 while True:
-    max_count = input("How many songs are we going to drill? ")
+    max_count = input("How many songs are we going to drill?")
     if max_count.isdigit():
         max_count = int(max_count)
         break
