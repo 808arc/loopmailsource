@@ -25,6 +25,9 @@ test.py
 # Sheets
 .csv
 
+# Pickle aka Coockies 
+.pkl
+
 # Flake8
 .flake8
 
