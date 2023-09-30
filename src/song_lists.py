@@ -4,7 +4,6 @@ tracks = []
 email_public = []  # email from "public_email"
 bio_list = []
 bio_mail = []  # email from bio
-# producer_id = []
 email_verification = []
 
 data = {
@@ -14,4 +13,5 @@ data = {
     "Track": tracks,
     "Email": email_public,
     "Bio": bio_list,
+    "Email Status": email_verification,
 }

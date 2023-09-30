@@ -9,6 +9,7 @@ from song_lists import (
 )
 from song_processing import process_songs
 from instagram_scraper import scrape_instagram_usernames
+from email_verif import email_check
 
 
 # Prompt the user for their favorite rapper's name
@@ -35,6 +36,9 @@ process_songs(songs, genius)
 scrape_instagram_usernames(
     user_name, password, instagram_usernames, email_public, bio_list
 )
+
+# Call the email_check function to perform email verification
+email_check()
 
 df = pd.DataFrame(data)
 
