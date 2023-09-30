@@ -5,6 +5,7 @@ email_public = []  # email from "public_email"
 bio_list = []
 bio_mail = []  # email from bio
 # producer_id = []
+email_verification = []
 
 data = {
     #   "Artist": artist_name,
