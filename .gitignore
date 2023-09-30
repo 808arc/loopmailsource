@@ -23,10 +23,10 @@ __pycache__/
 test.py
 
 # Sheets
-.csv
+*.csv
 
 # Pickle aka Coockies 
-.pkl
+*.pkl
 
 # Flake8
 .flake8
