@@ -1,7 +1,6 @@
 import pickle
 from time import sleep
 from random import randint
-from functools import lru_cache
 
 # from log_manager import login_to_instagram
 from instagram_private_api.errors import ClientError

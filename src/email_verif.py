@@ -1,7 +1,6 @@
 import dns.resolver
 import socket
 import smtplib
-import re
 import logging
 from time import sleep, time
 
@@ -22,12 +21,6 @@ invalid_email = []
 data_into_list = email_public
 
 
-def validate_email(email):
-    # Use a regular expression to validate the email format
-    pattern = r"^[\w\.-]+@[\w\.-]+\.\w+$"
-    return re.match(pattern, email)
-
-
 def email_check():
     start_time = time()  # Record the start time
     total_emails = len(data_into_list)
@@ -36,17 +29,11 @@ def email_check():
         # Calculate the estimated time remaining
         elapsed_time = time() - start_time
         estimated_remaining_time = (
-            (elapsed_time / idx) * (total_emails - idx)
-        ) if idx > 0 else 0
+            ((elapsed_time / idx) * (total_emails - idx)) if idx > 0 else 0
+        )
         print(
             f"Processed {idx}/{total_emails} emails. Estimated time remaining: {estimated_remaining_time:.2f} seconds"
         )
-
-        # Step 1: Check email format
-        if not validate_email(email_address):
-            logger.warning(f"Invalid email format: {email_address}")
-            email_verification.append("invalid")
-            continue
 
         # Step 2: Getting MX record
         # Pull domain name from email address

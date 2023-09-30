@@ -1,9 +1,7 @@
 import time
-from functools import lru_cache
 from song_lists import producers, instagram_usernames, tracks
 
 
-# @lru_cache(maxsize=None)
 def process_songs(songs, genius):
     num_producers = len(producers)  # Get the initial number of producers
 
